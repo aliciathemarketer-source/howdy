@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intellabooks · Nice to Meet You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#C4973A;--gold-bright:#DBA840;--gold-pale:#FBF6E8;
+  --gold-dim:rgba(196,151,58,0.11);--gold-border:rgba(196,151,58,0.26);
+  --bg:#FFFFFF;--surface:#FAFAF7;--text:#141210;--muted:#6B6460;--soft:#A09890;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--bg);min-height:100vh}
+
+/* HERO */
+.hero{
+  min-height:100svh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:4rem 1.75rem;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(196,151,58,0.07),transparent 70%);
+}
+.badge{display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);border:0.5px solid var(--gold-border);border-radius:100px;padding:6px 18px;margin-bottom:2.25rem;background:var(--gold-dim)}
+.badge span{width:5px;height:5px;border-radius:50%;background:var(--gold-bright);animation:pulse 2.5s infinite;display:inline-block}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.1}}
+.hero h1{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(40px,9vw,76px);line-height:1.05;margin-bottom:1.5rem;max-width:640px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:16px;font-weight:300;color:var(--muted);line-height:1.9;max-width:440px;margin:0 auto 2.75rem}
+.rule{width:28px;height:1px;background:var(--gold);margin:0 auto 2.75rem;opacity:0.5}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#fff;font-size:14px;font-weight:500;padding:15px 36px;border-radius:100px;text-decoration:none;transition:background 0.18s,transform 0.12s;letter-spacing:0.02em}
+.btn-primary:hover{background:var(--gold-bright);transform:translateY(-1px)}
+.scroll-hint{margin-top:2.5rem;font-size:11px;color:var(--soft);letter-spacing:0.08em;display:flex;flex-direction:column;align-items:center;gap:6px}
+.scroll-hint::after{content:'↓';font-size:14px;color:var(--gold);animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+/* SECTIONS */
+.section{padding:5rem 1.75rem;max-width:680px;margin:0 auto}
+.eyebrow{font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.section-title{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(28px,5.5vw,44px);line-height:1.1;margin-bottom:1.25rem}
+.section-title em{font-style:italic;color:var(--gold)}
+.prose{font-size:15px;line-height:1.9;color:var(--muted);font-weight:300;margin-bottom:1.5rem}
+.prose strong{color:var(--text);font-weight:500}
+
+/* THREE THINGS */
+.three-things{display:flex;flex-direction:column;gap:1px;border:0.5px solid var(--gold-border);border-radius:20px;overflow:hidden;margin-bottom:0}
+.thing{display:grid;grid-template-columns:56px 1fr;background:var(--surface);border-bottom:0.5px solid var(--gold-border)}
+.thing:last-child{border-bottom:none}
+.thing-num{display:flex;align-items:center;justify-content:center;background:var(--gold-dim);border-right:0.5px solid var(--gold-border)}
+.thing-num span{font-family:'Playfair Display',serif;font-size:24px;color:var(--gold);font-weight:400}
+.thing-body{padding:1.4rem 1.5rem}
+.thing-title{font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px}
+.thing-desc{font-size:13px;color:var(--muted);line-height:1.75;font-weight:300}
+
+/* PRICING */
+.pricing-section{padding:5rem 1.75rem;background:var(--surface);border-top:0.5px solid var(--gold-border);border-bottom:0.5px solid var(--gold-border)}
+.pricing-inner{max-width:680px;margin:0 auto}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:2rem}
+@media(max-width:560px){.price-grid{grid-template-columns:1fr}}
+.price-card{background:var(--bg);border:0.5px solid var(--gold-border);border-radius:16px;padding:1.5rem;text-align:center;transition:border-color 0.18s,transform 0.15s}
+.price-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.price-card.featured{background:linear-gradient(150deg,#111009,#1C190F);border-color:var(--gold)}
+.pc-name{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.price-card.featured .pc-name{color:rgba(244,240,230,0.45)}
+.pc-price{font-family:'Playfair Display',serif;font-size:38px;font-weight:400;color:var(--gold);line-height:1.1}
+.pc-price sub{font-family:'Inter',sans-serif;font-size:13px;font-weight:300;color:var(--muted)}
+.price-card.featured .pc-price sub{color:rgba(244,240,230,0.4)}
+.pc-tag{margin-top:8px;font-size:11px;color:var(--soft);font-weight:300;line-height:1.55}
+
+/* CLOSING CTA */
+.closing{padding:5rem 1.75rem 6rem;text-align:center;max-width:580px;margin:0 auto}
+.closing-title{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(28px,5.5vw,44px);line-height:1.1;margin-bottom:1rem}
+.closing-title em{font-style:italic;color:var(--gold)}
+.closing-sub{font-size:15px;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:2.5rem}
+.contact-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:1.5rem}
+.contact-chip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);border:0.5px solid var(--gold-border);border-radius:100px;padding:8px 18px;text-decoration:none;transition:border-color 0.18s,color 0.18s;font-weight:300;background:var(--surface)}
+.contact-chip:hover{border-color:var(--gold);color:var(--gold)}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge"><span></span>Intellabooks · 2026</div>
+  <h1>So glad we<br>got to <em>connect.</em></h1>
+  <div class="rule"></div>
+  <p class="hero-sub">Here's a quick look at what Intellabooks does and how it works — so you can take your time and decide if it's the right fit.</p>
+  <a href="https://sites.intellabooks.com/welcome_home/" target="_blank" rel="noopener" class="btn-primary">See the Full Overview →</a>
+  <div class="scroll-hint">or keep reading</div>
+</section>
+
+<!-- WHAT WE DO -->
+<div class="section">
+  <div class="eyebrow">What We Do</div>
+  <h2 class="section-title">Your business keeps<br>moving. <em>Even when you stop.</em></h2>
+  <p class="prose">Most businesses lose leads not because the product is wrong — but because nobody responded fast enough. Intellabooks fixes that with three things:</p>
+
+  <div class="three-things">
+    <div class="thing">
+      <div class="thing-num"><span>1</span></div>
+      <div class="thing-body">
+        <div class="thing-title">We answer for you — instantly.</div>
+        <div class="thing-desc">Every call, text, form, DM, and email gets a response within 60 seconds. The AI qualifies the lead and books the next step. No missed opportunities, no voicemail limbo.</div>
+      </div>
+    </div>
+    <div class="thing">
+      <div class="thing-num"><span>2</span></div>
+      <div class="thing-body">
+        <div class="thing-title">We follow up until they're ready.</div>
+        <div class="thing-desc">Automated email, SMS, and social sequences keep leads warm for weeks — personalized to your business. You show up when they're ready to say yes.</div>
+      </div>
+    </div>
+    <div class="thing">
+      <div class="thing-num"><span>3</span></div>
+      <div class="thing-body">
+        <div class="thing-title">We find more people just like your best clients.</div>
+        <div class="thing-desc">Once we know who actually converts, we build ad audiences from those real profiles — so every dollar you put into ads is chasing the right people.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="pricing-section">
+  <div class="pricing-inner">
+    <div class="eyebrow">Simple Pricing</div>
+    <h2 class="section-title">Pick the plan that<br><em>fits your business.</em></h2>
+    <p class="prose" style="margin-bottom:0">Three tiers, each one a complete system. No hidden fees, no long-term contracts — just a working automation engine running behind your business every day.</p>
+
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="pc-name">Core</div>
+        <div class="pc-price">$20<sub>/hr</sub></div>
+        <div class="pc-tag">AI response, CRM, booking &amp; email automation</div>
+      </div>
+      <div class="price-card featured">
+        <div class="pc-name">Marketing</div>
+        <div class="pc-price">$25<sub>/hr</sub></div>
+        <div class="pc-tag">Everything in Core plus social automation, ad campaigns &amp; lookalike audiences</div>
+      </div>
+      <div class="price-card">
+        <div class="pc-name">Elite</div>
+        <div class="pc-price">$30<sub>/hr</sub></div>
+        <div class="pc-tag">Full system with custom workflows, priority support &amp; dedicated strategy</div>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:1.25rem;font-size:12.5px;color:var(--muted);font-weight:300;line-height:1.7">Full breakdown of what's included in each plan is on the overview page.</p>
+  </div>
+</div>
+
+<!-- CLOSING CTA -->
+<div class="closing">
+  <h2 class="closing-title">Curious what this looks like for <em>your</em> business?</h2>
+  <p class="closing-sub">The overview page walks you through everything — what you get, how it works, and how to get started. There's a spot to book a call if you want to talk it through with the team.</p>
+  <a href="https://sites.intellabooks.com/welcome_home/" target="_blank" rel="noopener" class="btn-primary" style="margin:0 auto">Explore Intellabooks →</a>
+  <div class="contact-row">
+    <a href="tel:2147613091" class="contact-chip">📞 214-761-3091</a>
+    <a href="mailto:support@intellabooks.ai" class="contact-chip">✉️ support@intellabooks.ai</a>
+  </div>
+</div>
+
+</body>
+</html>
